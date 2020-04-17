@@ -12,8 +12,9 @@ const ExpenseSummary = (props) => (
 const mapStateToProps = (state,props) =>{
     const expenses = getFilterdExpenses(state.expenses,state.filter);
     return {
+        
         totalEpenses : expenses.length,
-        totalAmount : selectExpenseTotal(expenses)
+        totalAmount :   parseFloat(selectExpenseTotal(expenses)).toFixed(2)
     };
 };
 export default connect(mapStateToProps)(ExpenseSummary)
