@@ -2,6 +2,7 @@
 
 exports[`Test Expenses Dashboard compponent 1`] = `
 <div>
+  <Connect(ExpenseSummary) />
   <Connect(ExpenseListFilter) />
   <Connect(ExportList) />
 </div>
