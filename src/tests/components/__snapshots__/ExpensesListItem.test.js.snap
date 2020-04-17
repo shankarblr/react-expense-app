@@ -12,9 +12,8 @@ exports[`Test Expense List Item 1`] = `
   </Link>
   <p>
     100
-     - 
-    0
-     
+    -
+    Dec 31st, 1969
   </p>
 </div>
 `;
