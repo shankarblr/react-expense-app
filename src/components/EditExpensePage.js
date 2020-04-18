@@ -2,15 +2,15 @@ import React from 'react'
 import { connect } from "react-redux";
 import ExpenseForm from "./ExpenseForm";
 import {editExpenses} from './../actions/expenses'
-import {removeExpenses} from './../actions/expenses'
+import {startEditExpense,startRemoveExpense} from './../actions/expenses'
 
 export class EditExpensePage extends React.Component{
   onSubmit = (expense) => {
-    this.props.editExpenses(this.props.expense.id,expense) 
+    this.props.startEditExpense(this.props.expense.id,expense) 
     this.props.history.push("/")
   };
   onRemove = () => {
-    this.props.removeExpenses(this.props.expense.id)
+    this.props.startRemoveExpense(this.props.expense.id)
     this.props.history.push("/")
   };
   render(){
@@ -31,8 +31,8 @@ const mapStateToEditExpensePage = (state,props) => {
 
 const mapDispatchToProps =(dispatch,props) => {
   return {
-    editExpenses : (id,expense) => dispatch(editExpenses(id,{...expense})),
-    removeExpenses : (id) => dispatch(removeExpenses(id ))
+    startEditExpense : (id,expense) => dispatch(startEditExpense(id,expense)),
+    startRemoveExpense : (id) => dispatch(startRemoveExpense(id ))
   }
 };
 
