@@ -5,10 +5,27 @@ import FilterdExpenses from './../selectors/FilterdExpenses'
 import getFilterdExpenses from './../selectors/FilterdExpenses';
 
 export const ExportList = (props) => (
-        <div>
-            <h1>Export List </h1>
-            {  props.expenses.map((e) =>  <ExpenseItem key={e.id} {...e}/>)        }
-        </div>
+
+    <div className="content-container">
+    <div className="list-header">
+      <div className="show-for-mobile">Expenses</div>
+      <div className="show-for-desktop">Expense</div>
+      <div className="show-for-desktop">Amount</div>
+    </div>
+    <div className="list-body">
+    {
+      props.expenses.length === 0 ? (
+        <div className="list-item list-item--message">
+            <span>No expenses</span>
+          </div>    
+      ) : (
+          props.expenses.map((expense) => {
+            return <ExpenseItem key={expense.id} {...expense} />;
+          })
+        )
+    }
+    </div>
+  </div>
 );
 
 const mapStateToProps = (state) => {

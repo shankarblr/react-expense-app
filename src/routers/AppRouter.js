@@ -3,24 +3,23 @@ import {Router,Route,Switch} from 'react-router-dom'
 import ExpenseDashboardPage from './../components/ExpenseDashboardPage'
 import AddExpensePage from './../components/AddExpensePage'
 import EditExpensePage from './../components/EditExpensePage'
-import HelpPage from './../components/HelpPage'
 import NotfoundPage from './../components/NotfoundPage'
-
 import loginPage from './../components/loginPage'
 import createHistory from 'history/createBrowserHistory'
 import PrivateRoute from './PrivateRoute'
+import PublicRoute from './PublicRoute'
+
 
 export const history = createHistory();
 
 const AppRouter =() => (
-    <Router history = {history}>
+  <Router history={history}>
          <div>
               <Switch>
-                <Route path="/" component={loginPage} exact={true}  />
-                <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} exact={true}  />
+                <PublicRoute path="/" component={loginPage} exact={true}  />
+                <PrivateRoute path="/dashboard" component={ExpenseDashboardPage} />
                 <PrivateRoute path="/create" component={AddExpensePage} />
                 <PrivateRoute path="/edit/:id" component={EditExpensePage} />
-                <PrivateRoute path="/help" component ={HelpPage} />
                 <Route component={NotfoundPage} />
             </Switch> 
          </div>   
